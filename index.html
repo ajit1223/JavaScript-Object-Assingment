@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> JavaScript Object </title>
+</head>
+
+<body>
+
+    <div id="container">
+        <h2>Get Your Daily Quote</h2>
+        <div id="quoteContainer">
+            <p></p>
+            <p id="quoteGenius"></p>
+        </div>
+        <!--end quoteContainer-->
+        <div id="buttonContainer">
+            <input type="button" id="quoteButton" onclick="myfunction()" value="Click Me">
+        </div>
+        <!--end buttonContainer-->
+    </div>
+    <script> 
+    var quoteSource = [{
+        quote:"Get it down. Take chances. It may be bad, but it's the only way you can do anything really good.",
+        name:"- William Faulkner"    
+    },
+    {
+        quote:"The first draft is just you telling yourself the story.",
+        name:"- Terry Pratchett"
+    },
+    {
+        quote:"It does not matter how slowly you go aslong as you do not stop.",
+        name:"Confucius"
+    },
+    {
+        quote:"You can always edit a bad page. You can’t edit a blank page",
+        name:"- Jodi Picoult"
+    },
+    {
+        quote:"If there's a book that you want to read, but it hasn't been written yet, then you must write it.",
+        name:"- Toni Morrison"
+    }, 
+    {
+        quote:"I get a lot of letters from people. They say, I want to be a writer. What should I do? I tell them to stop writing to me and get on with it.",
+        name:"- Ruth Rendell"
+    }];
+    const quoteButton = document.getElementById('quoteButton');
+    function myfunction(){
+        //getting a new random number to attach to a quote and setting a limit
+        var sourceLength = quoteSource.length;
+        var randomNumber = Math.floor(Math.random() * sourceLength);
+        
+        //set a new quote
+        var newQuoteText = quoteSource[randomNumber].quote;
+        var newQuoteGenius = quoteSource[randomNumber].name;
+        var quoteContainer = document.getElementById('quoteContainer');
+        quoteContainer.innerHTML =`<p>${newQuoteText}</p> <p id="quoteGenius">-${newQuoteGenius}</p> `;
+    };
+    </script>
+    
+    </body>
+
+</html>
